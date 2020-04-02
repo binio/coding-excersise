@@ -18,10 +18,15 @@ This is a skeleton Java / Gradle version of the test
 Any SQL dialect will suffice
 
 1.	Create a query to return the unique rows in a table
+SELECT DISTINCT(column_name) FROM table_name WHERE column_name (conditions)
 
 2.	Write a command to insert values into a table
+INSERT INTO table_name (col_1, col_2) values (1,2))
+INSERT INTO table_name (col_1, col_2) values (1,3))
+INSERT INTO table_name (col_1, col_2) values (2,2))
 
 3.	Create a query that joins two tables together. Note, all rows from the first table must be in the result-set (e.g. given customer and order tables, return all customers and any orders for each customer)
+SELECT count(*) FROM customer c JOIN order s ON c.CustomerId = s.CustomerId;
 
 ### Puzzle
 Write a console application that accepts a random sequence of numbers and loops through looking for 2 equal, consecutive numbers. When found write 'Snap' to the console else print out the number (e.g. 1,3,5,5,'Snap').
