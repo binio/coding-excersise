@@ -26,7 +26,21 @@ INSERT INTO table_name (col_1, col_2) values (1,3))
 INSERT INTO table_name (col_1, col_2) values (2,2))
 
 3.	Create a query that joins two tables together. Note, all rows from the first table must be in the result-set (e.g. given customer and order tables, return all customers and any orders for each customer)
-SELECT count(*) FROM customer c JOIN order s ON c.CustomerId = s.CustomerId;
+SELECT c.col_name1, c.col_name2, s.some_col1 FROM customer c LEFT JOIN order s ON c.CustomerId = s.CustomerId;
+
+Eg. Customer table
+CustomerId , Name
+1          | Thomas
+2          | Steve
+
+Order table
+
+OrderId , CustomerId
+1        | 1
+2        | 3
+3        | 20
+
+would give all customers with steve having no orders
 
 ### Puzzle
 Write a console application that accepts a random sequence of numbers and loops through looking for 2 equal, consecutive numbers. When found write 'Snap' to the console else print out the number (e.g. 1,3,5,5,'Snap').

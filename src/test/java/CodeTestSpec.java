@@ -27,6 +27,18 @@ public class CodeTestSpec {
     }
 
     @Test
+    public void reverseArrayV2_returnsExpectedResult() {
+        // arrange
+        final String[] EXPECTED = {"x", "y", "z"};
+
+        // act
+        final String[] actual = CodeTest.reverseArrayV2(new String[] {"z", "y", "x"});
+
+        // assert
+        assertArrayEquals(EXPECTED, actual);
+    }
+
+    @Test
     public void uppercaseArray_returnsExpectedResult() {
         // arrange
         final String[] EXPECTED = {"XXX","YYY", "ZZZ"};

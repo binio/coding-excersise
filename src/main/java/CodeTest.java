@@ -2,10 +2,18 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class CodeTest {
     public static void main(String[] args) {
@@ -19,6 +27,20 @@ public class CodeTest {
             revertedArr[i] = input[input.length -1 -i];
         }
         return revertedArr;
+    }
+
+    public static String[] reverseArrayV2(String[] input) {
+        Iterator iterator = Arrays.asList(input).stream()
+                .collect(Collectors.toCollection(LinkedList::new))
+                .descendingIterator();
+        List<String> listReversedOrder = (List<String>) StreamSupport.stream(
+                Spliterators.spliteratorUnknownSize(iterator,
+                        Spliterator.ORDERED), false).collect(
+                Collectors.toList());
+
+        String[] output = new String[listReversedOrder.size()];
+        listReversedOrder.toArray(output);
+        return output;
     }
 
     public static String[] uppercaseArray(String[] input) {
